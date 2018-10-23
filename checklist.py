@@ -16,8 +16,12 @@ def destroy(index):
 def listAllItems():
     index = 0
     for listItem in checklist:
-        print(str(index) + listItem)
+        print(str(index) + ". " + listItem)
         index += 1
+
+def markComplete(index):
+    original = str(checklist[int(index)])
+    update(int(index), "√" + original)
 
 def test():
     create("purple sox")
@@ -49,8 +53,7 @@ def select(function_code):
         listAllItems()
 
     elif function_code == "D":
-        index = input("Index Number: ")
-        checklist[index] = "√" + checklist[index]
+        markComplete(input("Index Number: "))
 
     # Catch all
     else:
